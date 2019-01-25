@@ -18,11 +18,13 @@ public class Consumer {
         ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
         output.writeUTF(interfaceName); // 接口名称
         output.writeUTF(method.getName()); // 方法名称
-        output.writeObject(method.getParameterTypes());
-        output.writeObject(arguments);
+        output.writeObject(method.getParameterTypes()); // 参数类型
+        output.writeObject(arguments); // 参数对象
     }
 
     public static void main(String[] args) throws Exception{
-        consume();
+        while(true){
+            consume();
+        }
     }
 }
