@@ -1,0 +1,127 @@
+1.是不是只有java编译器才能完成java到class字节码文件的编译过程？
+  不是的,Jython/scala/groovy/jruby 都可以完成
+2. init 和clinit
+    init：实例化初始化方法(调用new初始化对象的时候，反射newInstance, clone方法, ObjectInputStream.getObject())
+    Clinit：类和接口的初始化(类变量初始化语句，静态初始化语句)
+
+3. 类加载机制
+  生命周期：加载 --> 验证，准备，解析 --> 初始化 --> 使用 --> 卸载
+  第二步可以成为连接
+
+  第一步：加载
+    1. 获取二进制字节流
+    2. 静态存储结构转化为方法区的运行时数据结构
+    3. 在java堆里面生成一个类对象，作为方法区的访问入口
+  第二步：验证
+    1. 验证class文件的标识
+    2. 验证版本号
+    3. 验证常量池（常量类型，数据结构是否正确）
+    4. class文件的每个部分（字段表，方法表等）
+    5. 元数据验证（final验证，父类验证，继承验证）
+    6. 字节码验证（指令验证）
+   准备：
+   1. 为类变量分配内存并且设置类变量的初始化阶段
+   2. 只对static变量进行内存分配
+    static int n = 2; 初始化值为0而不是2， 因为这个时候还没有java 的调用
+    static final int n = 2; 对应到常量池，在准备阶段必须被赋值为2
+    类变量：一般称为静态变量
+    实例变量：当对象被实例化的时候，实例变量就跟着确定。随着对象的销毁而销毁
+  解析：
+    对符号引用进行解析
+    直接引用：指向目标的指针或者偏移量
+    符号引用 --> 直接引用
+  初始化：
+    init: 类的实例构造器
+    clinit: 静态变量，静态块的初始化
+    class A{
+      static int i = 2;
+      int n;
+      static{
+        System.out.println("");
+      }
+    }
+  类加载器：
+  Launcher类：
+  var1 = Launcher.ExtClassLoader.getExtClassLoader();
+  this.loader = Launcher.AppClassLoader.getAppClassLoader(var1);
+  question：ExtClassLoader和AppClassLoader有什么关系？
+             AppClassLoader继承于ExtClassLoader
+             ExtClassLoader继承于BootstrapClassLoader
+  机制：双亲委派
+  目的：安全
+  1. 父类加载的不予子类加载
+  2. 每个类只会被加载一次
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
