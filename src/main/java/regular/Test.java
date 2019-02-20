@@ -9,14 +9,24 @@ public class Test {
 //        rep();
 //        mail();
 //        pat();
-        part2();
+        part3();
     }
 
     private static void part2(){
         String str = "[]1, 2,3,4,5]";
-        String regex = "[ |\\[|\\]|,]";
+        String regex = "[\\[\\] ,]";
         System.out.println(regex);
         System.out.println(str.replaceAll(regex, ""));
+    }
+
+    public static void part3(){
+        String str="sd54f65sd4f";
+        String reg="[a-z]\\d";
+        Pattern p=Pattern.compile(reg);
+        Matcher m=p.matcher(str);
+        while(m.find()){
+            System.out.println(m.group());
+        }
     }
 
 
