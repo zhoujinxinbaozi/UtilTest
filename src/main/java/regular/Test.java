@@ -1,7 +1,5 @@
 package regular;
 
-import javafx.scene.paint.Material;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,8 +9,18 @@ public class Test {
 //        rep();
 //        mail();
 //        pat();
-        pat1();
+        part2();
     }
+
+    private static void part2(){
+        String str = "[]1, 2,3,4,5]";
+        String regex = "[ |\\[|\\]|,]";
+        System.out.println(regex);
+        System.out.println(str.replaceAll(regex, ""));
+    }
+
+
+
     // 匹配模式
     private static void pat1() {
         String sr = "dada ada     adad adsda ad asdda adr3 fas daf fas fdsf 234 adda";
