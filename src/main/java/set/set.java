@@ -13,7 +13,6 @@ public class set {
         serverMap.put("10.126.148.38", 2);
         Set<String> strings = serverMap.keySet();
         System.out.println(Arrays.toString(strings.toArray()));
-
     }
 
 }
