@@ -89,6 +89,13 @@
       <version>1.9.3.RC1</version>
     </dependency>
 
+    <!-- mybatis -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+
 
   </dependencies>
 
