@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Test {
 
@@ -22,5 +24,9 @@ public class Test {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        Map<String, String> mm = new ConcurrentHashMap<>();
+        mm.put("123", null);
+
     }
 }

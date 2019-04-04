@@ -2,8 +2,20 @@ package coding;
 
 public class mihanshu {
     public static void main(String[] args) {
-        double result = calculate(2, 3);
-        System.out.println(result);
+        long start = System.currentTimeMillis();
+        double result;
+        int i = 100000000;
+        while(i-- != 0){
+            result = calculate(2, 127);
+        }
+        System.out.println(System.currentTimeMillis() - start);
+        start = System.currentTimeMillis();
+        i = 100000000;
+        while(i-- != 0){
+            result = calculate1(2, 127);
+        }
+        System.out.println(System.currentTimeMillis() - start);
+//        System.out.println(result);
     }
 
     // 求a的x次幂
@@ -25,5 +37,20 @@ public class mihanshu {
             }
             return b ? result : 1/result;
         }
+    }
+
+    public static double calculate1(double a, int x){
+        double result = 1;
+        while(x != 0){
+            if((x & 1) == 0){
+                a = a * a;
+                x = x >> 1;
+            }else{
+                result = result * a;
+                a = a * a;
+                x = x >> 1;
+            }
+        }
+        return result;
     }
 }
