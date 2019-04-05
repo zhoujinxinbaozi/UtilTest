@@ -3,6 +3,7 @@ package coding.BinaryTree;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class FindPath {
     private static List<Node> nodeList;
@@ -13,13 +14,14 @@ public class FindPath {
     public static void main(String[] args) {
         createBinTree();
 //        inOrderTraverse(nodeList.get(0));
-//      print(findPathByFoot(nodeList.get(0), 10));
+//        print(findPathByFoot(nodeList.get(0), 10));
 //        print(findPathByRoot(nodeList.get(0), 10));
 //        inorderTraverseByFoot(nodeList.get(0), 10);
-        inorderTraverseByEvery(nodeList.get(0), 10);
+//        inorderTraverseByEvery(nodeList.get(0), 10);
+        sequenceTraver(nodeList.get(0));
     }
 
-    public static void createBinTree() {
+    private static void createBinTree() {
         nodeList = new LinkedList<Node>();
         // 将一个数组的值依次转换为Node节点
         for (int nodeIndex = 0; nodeIndex < array.length; nodeIndex++) {
@@ -55,7 +57,7 @@ public class FindPath {
 //    }
 
     //从根路径开始寻找路径加和为target
-    public static ArrayList<ArrayList<Integer>> findPathByRoot(Node root,int target) {
+    private static ArrayList<ArrayList<Integer>> findPathByRoot(Node root,int target) {
         if(root == null) {
             return result;
         }
@@ -76,7 +78,7 @@ public class FindPath {
     }
 
     // 以叶节点结束
-    public static ArrayList<ArrayList<Integer>> findPathByFoot(Node root,int target) {
+    private static ArrayList<ArrayList<Integer>> findPathByFoot(Node root,int target) {
         if(root == null) {
             return result;
         }
@@ -131,5 +133,33 @@ public class FindPath {
         }
         result = new ArrayList<>();
     }
+
+    // 层序遍历
+    private static void sequenceTraver(Node root){
+        Queue<Node> queue = new LinkedList<>();
+        ((LinkedList<Node>) queue).add(root);
+        int start = 0;
+        int end = 1;
+        while(!queue.isEmpty()){
+            Node pop = ((LinkedList<Node>) queue).pop();
+            start ++;
+            if(pop.leftChild != null){
+                ((LinkedList<Node>) queue).add(pop.leftChild);
+            }
+            if(pop.rightChild != null){
+                ((LinkedList<Node>) queue).add(pop.rightChild);
+            }
+            if(end == start){
+                System.out.println(pop.data);
+                start = 0;
+                end = queue.size();
+            }else{
+                System.out.print(pop.data + "\t");
+            }
+
+        }
+
+    }
+
 
 }
