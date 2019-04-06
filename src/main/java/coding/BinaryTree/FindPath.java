@@ -7,7 +7,8 @@ import java.util.Queue;
 
 public class FindPath {
     private static List<Node> nodeList;
-    private static int[] array = { 4, 2, 6, 1, 4, 4, 1, 2, 3 };
+//    private static int[] array = { 4, 2, 6, 1, 4, 4, 1, 2, 3 };
+    private static int[] array = {7, 4, 10, 3, 5, 8, 12};
     private static ArrayList<ArrayList<Integer>> result = new ArrayList<>();
     private static ArrayList<Integer> list = new ArrayList<>();
 
@@ -18,7 +19,8 @@ public class FindPath {
 //        print(findPathByRoot(nodeList.get(0), 10));
 //        inorderTraverseByFoot(nodeList.get(0), 10);
 //        inorderTraverseByEvery(nodeList.get(0), 10);
-        sequenceTraver(nodeList.get(0));
+//        sequenceTraver(nodeList.get(0));
+        System.out.println(judgeSortTree(nodeList.get(0)));
     }
 
     private static void createBinTree() {
@@ -156,10 +158,29 @@ public class FindPath {
             }else{
                 System.out.print(pop.data + "\t");
             }
-
         }
-
     }
 
-
+    private static boolean judgeSortTree(Node root){
+        if(root == null){
+            return true;
+        }else{
+            int count = 0;
+            if(root.leftChild != null){
+                if(judgeSortTree(root.leftChild) && root.data > root.leftChild.data){
+                    count ++;
+                }
+            }else{
+                count ++;
+            }
+            if(root.rightChild != null && root.data < root.rightChild.data){
+                if(judgeSortTree(root.rightChild)){
+                    count ++;
+                }
+            }else{
+                count ++;
+            }
+            return count == 2;
+        }
+    }
 }
