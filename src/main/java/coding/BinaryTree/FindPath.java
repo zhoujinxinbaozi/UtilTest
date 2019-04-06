@@ -161,6 +161,7 @@ public class FindPath {
         }
     }
 
+    // 判断当前节点的树是否为排序二叉树
     private static boolean judgeSortTree(Node root){
         if(root == null){
             return true;
