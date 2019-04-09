@@ -6,13 +6,24 @@ public class mihanshu {
         double result;
         int i = 100000000;
         while(i-- != 0){
-            result = calculate(2, 127);
+            result = calculate3(2, 100000);
+//            System.out.println(result);
         }
         System.out.println(System.currentTimeMillis() - start);
         start = System.currentTimeMillis();
         i = 100000000;
         while(i-- != 0){
-            result = calculate1(2, 127);
+            result = calculate1(2, 100000);
+//            System.out.println(result);
+        }
+        System.out.println(System.currentTimeMillis() - start);
+
+
+        start = System.currentTimeMillis();
+        i = 100000000;
+        while(i-- != 0){
+            result = calculate(2, 100000);
+//            System.out.println(result);
         }
         System.out.println(System.currentTimeMillis() - start);
 //        System.out.println(result);
@@ -31,7 +42,7 @@ public class mihanshu {
             double temp = calculate(a, x/2);
             double result = 0;
             if((x & 1) == 1){
-                result =  temp * temp * a;
+                result = temp * temp * a;
             }else{
                 result = temp * temp;
             }
@@ -39,6 +50,7 @@ public class mihanshu {
         }
     }
 
+    // 快速解法，bit的方式
     public static double calculate1(double a, int x){
         double result = 1;
         while(x != 0){
@@ -53,4 +65,23 @@ public class mihanshu {
         }
         return result;
     }
+
+    public static double calculate3(double a, int x){
+        double result = a;
+        int count = x;
+        for(int i = 1; i < Math.log(x)/Math.log(2); i ++){
+            if((count & 1) == 1){
+                result = result * a * a;
+//                System.out.println("result = " + result);
+                count =count >> 1;
+            }else{
+                result = result * a;
+                count = count >> 1;
+            }
+            a *= a;
+        }
+        return result;
+    }
+
+
 }

@@ -7,8 +7,8 @@ import java.util.Queue;
 
 public class FindPath {
     private static List<Node> nodeList;
-//    private static int[] array = { 4, 2, 6, 1, 4, 4, 1, 2, 3 };
-    private static int[] array = {7, 4, 10, 3, 5, 8, 12};
+    private static int[] array = { 4, 2, 6, 1, 4, 4, 1, 2, 3 };
+//    private static int[] array = {7, 4, 10, 3, 5, 8, 12};
     private static ArrayList<ArrayList<Integer>> result = new ArrayList<>();
     private static ArrayList<Integer> list = new ArrayList<>();
 
@@ -16,11 +16,11 @@ public class FindPath {
         createBinTree();
 //        inOrderTraverse(nodeList.get(0));
 //        print(findPathByFoot(nodeList.get(0), 10));
-//        print(findPathByRoot(nodeList.get(0), 10));
+        print(findPathByRoot(nodeList.get(0), 10));
 //        inorderTraverseByFoot(nodeList.get(0), 10);
 //        inorderTraverseByEvery(nodeList.get(0), 10);
 //        sequenceTraver(nodeList.get(0));
-        System.out.println(judgeSortTree(nodeList.get(0)));
+//        System.out.println(judgeSortTree(nodeList.get(0)));
     }
 
     private static void createBinTree() {
@@ -60,9 +60,6 @@ public class FindPath {
 
     //从根路径开始寻找路径加和为target
     private static ArrayList<ArrayList<Integer>> findPathByRoot(Node root,int target) {
-        if(root == null) {
-            return result;
-        }
         target = target - root.data;
         list.add(root.data);
         if(target == 0){
@@ -81,9 +78,6 @@ public class FindPath {
 
     // 以叶节点结束
     private static ArrayList<ArrayList<Integer>> findPathByFoot(Node root,int target) {
-        if(root == null) {
-            return result;
-        }
         target = target - root.data;
         list.add(root.data);
         if(target == 0 && root.leftChild == null && root.rightChild == null){
