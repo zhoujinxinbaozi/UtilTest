@@ -53,33 +53,40 @@ public class mihanshu {
     // 快速解法，bit的方式
     public static double calculate1(double a, int x){
         double result = 1;
+        int count = 0;
         while(x != 0){
+            count ++;
             if((x & 1) == 0){
-                a = a * a;
+//                a = a * a;
                 x = x >> 1;
             }else{
                 result = result * a;
-                a = a * a;
+//                a = a * a;
                 x = x >> 1;
             }
+            a *= a;
         }
+//        System.out.println("count = " + count);
         return result;
     }
 
     public static double calculate3(double a, int x){
         double result = a;
-        int count = x;
-        for(int i = 1; i < Math.log(x)/Math.log(2); i ++){
-            if((count & 1) == 1){
+        int cc = 0;
+        double ss = Math.log(x)/Math.log(2);
+        for(int i = 1; i < ss; i ++){
+            cc ++;
+            if((x & 1) == 1){
                 result = result * a * a;
 //                System.out.println("result = " + result);
-                count =count >> 1;
+                x = x >> 1;
             }else{
                 result = result * a;
-                count = count >> 1;
+                x = x >> 1;
             }
             a *= a;
         }
+//        System.out.println("cc = " + cc);
         return result;
     }
 
