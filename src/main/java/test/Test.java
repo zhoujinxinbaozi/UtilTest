@@ -1,6 +1,9 @@
 package test;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Test {
@@ -24,16 +27,27 @@ public class Test {
 //        // 不允许value为null
 //        Map<String, String> mm = new ConcurrentHashMap<>();
 //        mm.put("123", null);
-        List<Integer> list = new ArrayList();
-        list.add(1);
-        list.add(2);
-        pp(list);
-        System.out.println(0%100);
-
+//        List<Integer> list = new ArrayList();
+//        list.add(1);
+//        list.add(2);
+//        pp(list);
+        getNextDate();
     }
 
     public static void pp(List<?> list){
         System.out.println(list.toString());
     }
+    
+    public static String getNextDate(){
+        Date date=new Date();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        calendar.add(calendar.DATE,1);
+        date=calendar.getTime();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        String nextString = formatter.format(date);
+        return nextString;
+    }
+
 
 }
