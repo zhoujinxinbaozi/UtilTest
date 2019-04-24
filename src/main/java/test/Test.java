@@ -1,11 +1,13 @@
 package test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
 
     public static void main(String[] args) {
+        System.out.println(File.separator);
 //        String version = "6.2.4";
 //        String[] split = version.split("\\.");
 //        System.out.println(Arrays.toString(split));
@@ -24,11 +26,11 @@ public class Test {
 //        // 不允许value为null
 //        Map<String, String> mm = new ConcurrentHashMap<>();
 //        mm.put("123", null);
-        List<Integer> list = new ArrayList();
-        list.add(1);
-        list.add(2);
-        pp(list);
-        System.out.println(0%100);
+//        List<Integer> list = new ArrayList();
+//        list.add(1);
+//        list.add(2);
+//        pp(list);
+//        System.out.println(0%100);
 
     }
 
