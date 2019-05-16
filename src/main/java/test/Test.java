@@ -3,11 +3,22 @@ package test;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(File.separator);
+//        System.out.println(File.separator);
+//        System.out.println(Math.random());
+        Random random = new Random();
+        int i = 0;
+        while (i != 10000) {
+            int temp = (random.nextInt(2) + 3);
+            if (temp != 3 && temp != 4) {
+                System.out.println(temp);
+            }
+            i++;
+        }
 //        String version = "6.2.4";
 //        String[] split = version.split("\\.");
 //        System.out.println(Arrays.toString(split));
@@ -34,7 +45,7 @@ public class Test {
 
     }
 
-    public static void pp(List<?> list){
+    public static void pp(List<?> list) {
         System.out.println(list.toString());
     }
 
