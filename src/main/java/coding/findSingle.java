@@ -16,12 +16,13 @@ public class findSingle {
         while(i < arr.length && j >= 0){
             if(arr[i][j] == target){
                 System.out.println("i = " + i + "\t" + "j = " + j);
-                break;
+                return ;
             }else if(arr[i][j] < target){
                 i ++;
             }else{
                 j --;
             }
         }
+        System.out.println("i = " + -1 + "\t" + "j = " + -1);
     }
 }
