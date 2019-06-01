@@ -1,4 +1,4 @@
-package coding.链表;
+package coding.LinkedList;
 
 public class Test {
     public static void main(String[] args) {

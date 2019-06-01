@@ -1,4 +1,4 @@
-package 位运算;
+package BitCal;
 
 /***
  * 求一个整数的二进制表达式中有多少个1

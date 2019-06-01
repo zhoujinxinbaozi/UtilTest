@@ -1,4 +1,4 @@
-package 位运算;
+package BitCal;
 
 /***
  * 用位运算实现加减乘除
