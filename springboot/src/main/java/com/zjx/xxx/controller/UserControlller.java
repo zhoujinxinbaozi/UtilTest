@@ -2,6 +2,7 @@ package com.zjx.xxx.controller;
 
 import com.zjx.xxx.Entity;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,11 +17,13 @@ import java.util.HashSet;
 @SpringBootApplication
 @RequestMapping(value = "/springboot")
 public class UserControlller {
-    @RequestMapping(value = "/gerUserByGet", method = RequestMethod.GET)
+    @RequestMapping(value = "/getUserByGet", method = RequestMethod.GET)
     public Entity getUserByGet(@RequestParam(value = "userName") String userName, @RequestParam(value = "userAge") int userAge){
         Entity entity = new Entity(userName, userAge);
         java.util.HashSet list = new HashSet<String>();
         list.add("123");
         return entity;
     }
+
+
 }
