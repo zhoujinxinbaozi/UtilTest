@@ -9,8 +9,8 @@ public class FindPath {
     private static List<Node> nodeList;
     private static int[] array = { 4, 2, 6, 1, 4, 4, 1, 2, 3 };
     //    private static int[] array = {7, 4, 10, 3, 5, 8, 12};
-    private static ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-    private static ArrayList<Integer> list = new ArrayList<>();
+    private static ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+    private static ArrayList<Integer> list = new ArrayList<Integer>();
 
     public static void main(String[] args) {
         createBinTree();

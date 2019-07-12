@@ -1,8 +1,6 @@
 package redis;
 
 
-import org.junit.Before;
-import org.junit.Test;
 import redis.clients.jedis.Jedis;
 
 import java.util.HashMap;

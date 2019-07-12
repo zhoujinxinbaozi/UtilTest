@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Test {
 
-    private static final ThreadLocal<Integer>  threadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<Integer>  threadLocal = new ThreadLocal<Integer>();
     private static final Random random = new Random();
     public static void main(String[] args) throws Exception{
         threadLocal.set(random.nextInt(10));

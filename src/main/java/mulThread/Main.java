@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.concurrent.*;
 
 public class Main {
-    public static List<String> ll = new ArrayList<>();
+    public static List<String> ll = new ArrayList<String>();
     public static final ExecutorService pool = Executors.newFixedThreadPool(100);
     public static List<Future> futureList = new ArrayList<Future>();
 
