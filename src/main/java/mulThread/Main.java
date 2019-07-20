@@ -1,38 +1,34 @@
 package mulThread;
 
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import java.util.ArrayList;
 import java.util.concurrent.*;
 
+/**
+ * 線程池的方式進行時間上的取捨，大於規定時間吐出的結果不要了
+ */
 public class Main {
-    public static List<String> ll = new ArrayList<String>();
-    public static final ExecutorService pool = Executors.newFixedThreadPool(100);
-    public static List<Future> futureList = new ArrayList<Future>();
-
-    public static void add(){
-        ll.add("11111");
-    }
+    private static ExecutorService pool = Executors.newFixedThreadPool(10);
+    private static List<Integer> list = new ArrayList<>();
+    private static int noData = 0;
+    private static int haveData = 0;
+    private static final int count = 20;
 
     public static void main(String[] args) {
-        for(int i = 0; i < 1; i ++){
-            Callable callable = new CallableEntity();
+        for (int i = 1; i <= count; i++) {
+            Callable callable = new CallableEntity(i);
             Future future = pool.submit(callable);
-            futureList.add(future);
-        }
-        for(int i = 0; i < 1; i ++){
-            long start = System.currentTimeMillis();
-            try{
-                futureList.get(i).get(500, TimeUnit.MILLISECONDS);
-            }catch(Exception e){
-
+            try {
+                Integer target = (Integer)future.get(i, TimeUnit.MILLISECONDS);
+                list.add(target);
+            } catch (Exception e) {
+//                System.out.println(String.format("notGetData"));
             }
-            System.out.println("spend = " + (System.currentTimeMillis() - start));
-            System.out.println(Arrays.asList(ll).toString());
         }
-
+        System.out.println("get data = " + list.size());
+        System.out.println(Arrays.asList(list).toString());
+        System.exit(0);
     }
 
 }

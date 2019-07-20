@@ -4,10 +4,15 @@ import java.util.concurrent.Callable;
 
 public class CallableEntity implements Callable {
 
+    private int target;
+
+    public CallableEntity(int target) {
+        this.target = target;
+    }
+
     @Override
-    public Object call() throws Exception {
-//        Thread.sleep(1000);
-        Main.add();
-        return null;
+    public Integer call() throws Exception {
+        Thread.sleep(11);
+        return target;
     }
 }
