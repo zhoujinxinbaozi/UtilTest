@@ -131,6 +131,13 @@
             <version>1.10.3</version>
         </dependency>
 
+        <!-- guava 缓存相关 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>25.0-jre</version>
+        </dependency>
+
     </dependencies>
 
     <build>
