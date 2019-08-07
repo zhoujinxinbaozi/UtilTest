@@ -1,10 +1,7 @@
 package test;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 public class Test {
 
@@ -31,7 +28,46 @@ public class Test {
 //        list.add(1);
 //        list.add(2);
 //        pp(list);
-        getNextDate();
+//        getNextDate();// 测试日期
+//        Queue<Integer> queue = new LinkedList<Integer>();
+//        queue.add(1);
+//        System.out.println(((LinkedList<Integer>) queue).pop());
+        int[] arr = new int[]{1,0,1};
+        Test test = new Test();
+        test.moveZeroes(arr);
+    }
+
+    public void moveZeroes(int[] nums) {
+        int point0 = 0;
+        int pointNo0 = 0;
+        int len = nums.length;
+        while(point0 != len && pointNo0 != len){
+            while(point0 != len){
+                if(nums[point0] != 0){
+                    point0 ++;
+                }else{
+                    break;
+                }
+            }
+            while(pointNo0 != len){
+                if(nums[pointNo0] == 0){
+                    pointNo0 ++;
+                }else{
+                    break;
+                }
+            }
+
+            if(point0 < len && pointNo0 < len && nums[pointNo0] != 0 && nums[point0] == 0 && point0 < pointNo0){
+                int tmp = nums[point0];
+                nums[point0] = nums[pointNo0];
+                nums[pointNo0] = tmp;
+                point0 ++;
+                pointNo0 ++;
+            }
+            if(pointNo0 <= point0)
+                pointNo0 ++;
+        }
+        System.out.print(Arrays.toString(nums));
     }
 
     public static void pp(List<?> list){
