@@ -35,6 +35,7 @@ public class Test {
         int[] arr = new int[]{1,0,1};
         Test test = new Test();
         test.moveZeroes(arr);
+        System.out.println((2)^(-3));
     }
 
     public void moveZeroes(int[] nums) {
