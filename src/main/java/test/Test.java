@@ -32,10 +32,12 @@ public class Test {
 //        Queue<Integer> queue = new LinkedList<Integer>();
 //        queue.add(1);
 //        System.out.println(((LinkedList<Integer>) queue).pop());
-        int[] arr = new int[]{1,0,1};
-        Test test = new Test();
-        test.moveZeroes(arr);
-        System.out.println((2)^(-3));
+//        int[] arr = new int[]{1,0,1};
+//        Test test = new Test();
+//        test.moveZeroes(arr);
+//        System.out.println((2)^(-3));
+        String str = "123";
+        System.out.println();
     }
 
     public void moveZeroes(int[] nums) {
