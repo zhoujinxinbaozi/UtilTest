@@ -5,6 +5,9 @@ package abtest;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ *
+ */
 public class Main {
     static List<Integer> list = new ArrayList<>(1000);
     static List<Integer> result = new ArrayList<>(1000);
