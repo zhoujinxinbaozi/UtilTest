@@ -42,6 +42,7 @@ public class MaxSubsequence {
      * 遍历的值小于result[0] 直接替换
      * 遍历的值小于result[len] 直接添加
      * 其他情况直接二分查找之前的元素，将第一个比该值大的元素进行替换
+     * O(nlogn)
      * @param arr
      */
     public void getSubsequence1(int[] arr){
